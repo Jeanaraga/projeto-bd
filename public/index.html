@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Vendas</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <h2>Dashboard</h2>
+
+        <nav>
+            <a href="index.html" class="active">Dashboard</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="vendas.html">Vendas</a>
+            <a href="relatorios.html">Relatórios SQL</a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <h1>Dashboard de Vendas</h1>
+                <p>Resumo geral das vendas e estoque da loja</p>
+            </div>
+        </header>
+
+        <!-- CARDS -->
+        <section class="cards">
+            <div class="card">
+                <span>Total vendido</span>
+                <strong id="totalVendido">R$ 0,00</strong>
+            </div>
+
+            <div class="card">
+                <span>Quantidade de vendas</span>
+                <strong id="quantidadeVendas">0</strong>
+            </div>
+
+            <div class="card">
+                <span>Ticket médio</span>
+                <strong id="ticketMedio">R$ 0,00</strong>
+            </div>
+
+            <div class="card">
+                <span>Total de clientes</span>
+                <strong id="totalClientes">0</strong>
+            </div>
+
+            <div class="card">
+                <span>Total de produtos</span>
+                <strong id="totalProdutos">0</strong>
+            </div>
+
+            <div class="card alerta">
+                <span>Estoque baixo</span>
+                <strong id="produtosEstoqueBaixo">0</strong>
+            </div>
+        </section>
+
+        <!-- GRÁFICOS -->
+        <section class="grid-graficos">
+            <div class="box">
+                <h3>Vendas por mês</h3>
+                <canvas id="graficoVendasMes"></canvas>
+            </div>
+
+            <div class="box">
+                <h3>Produtos mais vendidos</h3>
+                <canvas id="graficoProdutosVendidos"></canvas>
+            </div>
+
+            <div class="box">
+                <h3>Vendas por categoria</h3>
+                <canvas id="graficoCategorias"></canvas>
+            </div>
+        </section>
+
+        <!-- TABELAS -->
+        <section class="grid-tabelas">
+            <div class="box">
+                <h3>Produtos com estoque baixo</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Produto</th>
+                            <th>Categoria</th>
+                            <th>Estoque</th>
+                            <th>Mínimo</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="tabelaEstoqueBaixo">
+                        <tr>
+                            <td colspan="4">Carregando...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="box">
+                <h3>Últimas vendas</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Cliente</th>
+                            <th>Funcionário</th>
+                            <th>Valor</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="tabelaUltimasVendas">
+                        <tr>
+                            <td colspan="5">Carregando...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./js/dashboard.js"></script>
+</body>
+</html>

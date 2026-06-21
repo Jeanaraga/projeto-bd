@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatórios SQL - Dashboard de Vendas</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <h2>Dashboard</h2>
+
+        <nav>
+            <a href="index.html">Dashboard</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="vendas.html">Vendas</a>
+            <a href="relatorios.html" class="active">Relatórios SQL</a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <h1>Relatórios SQL</h1>
+                <p>Consultas práticas usando JOINs, agrupamentos e operações de conjunto</p>
+            </div>
+        </header>
+
+        <!-- CARDS DOS RELATÓRIOS -->
+        <section class="relatorios-grid">
+
+            <div class="relatorio-card">
+                <h3>INNER JOIN</h3>
+                <p>Lista vendas com cliente, funcionário e loja.</p>
+                <button class="btn-primary" onclick="carregarRelatorio('inner')">
+                    Executar
+                </button>
+            </div>
+
+            <div class="relatorio-card">
+                <h3>LEFT JOIN</h3>
+                <p>Lista todos os clientes, mesmo os que não fizeram venda.</p>
+                <button class="btn-primary" onclick="carregarRelatorio('left')">
+                    Executar
+                </button>
+            </div>
+
+            <div class="relatorio-card">
+                <h3>RIGHT JOIN</h3>
+                <p>Lista produtos, mesmo os que não aparecem em vendas.</p>
+                <button class="btn-primary" onclick="carregarRelatorio('right')">
+                    Executar
+                </button>
+            </div>
+
+            <div class="relatorio-card">
+                <h3>FULL JOIN</h3>
+                <p>Lista clientes e vendas, mostrando correspondências ou ausência delas.</p>
+                <button class="btn-primary" onclick="carregarRelatorio('full')">
+                    Executar
+                </button>
+            </div>
+
+            <div class="relatorio-card">
+                <h3>GROUP BY + HAVING</h3>
+                <p>Mostra clientes que gastaram mais de R$ 100.</p>
+                <button class="btn-primary" onclick="carregarRelatorio('group')">
+                    Executar
+                </button>
+            </div>
+
+            <div class="relatorio-card">
+                <h3>UNION</h3>
+                <p>Une nomes de clientes e funcionários em uma lista.</p>
+                <button class="btn-primary" onclick="carregarRelatorio('union')">
+                    Executar
+                </button>
+            </div>
+
+            <div class="relatorio-card">
+                <h3>INTERSECT</h3>
+                <p>Mostra clientes que possuem venda e endereço cadastrado.</p>
+                <button class="btn-primary" onclick="carregarRelatorio('intersect')">
+                    Executar
+                </button>
+            </div>
+
+            <div class="relatorio-card">
+                <h3>EXCEPT</h3>
+                <p>Mostra clientes cadastrados que nunca fizeram venda.</p>
+                <button class="btn-primary" onclick="carregarRelatorio('except')">
+                    Executar
+                </button>
+            </div>
+
+            <div class="relatorio-card">
+                <h3>Relatório de Estoque</h3>
+                <p>Mostra a situação dos produtos: estoque normal ou baixo.</p>
+                <button class="btn-primary" onclick="carregarRelatorio('estoque')">
+                    Executar
+                </button>
+            </div>
+
+        </section>
+
+        <!-- ÁREA DO RESULTADO -->
+        <section class="box">
+            <div class="section-header">
+                <div>
+                    <h3 id="tituloRelatorio">Resultado do relatório</h3>
+                    <p id="descricaoRelatorio" class="descricao-relatorio">
+                        Clique em um relatório acima para visualizar os dados.
+                    </p>
+                </div>
+
+                <button class="btn-secondary" id="btnLimparResultado">
+                    Limpar
+                </button>
+            </div>
+
+            <div class="sql-box">
+                <h4>Consulta SQL usada:</h4>
+                <pre id="sqlConsulta">Nenhuma consulta executada.</pre>
+            </div>
+
+            <div class="table-wrapper">
+                <table id="tabelaResultado">
+                    <thead id="theadResultado">
+                        <tr>
+                            <th>Resultado</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="tbodyResultado">
+                        <tr>
+                            <td>Nenhum relatório carregado.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="./js/relatorios.js"></script>
+</body>
+</html>
