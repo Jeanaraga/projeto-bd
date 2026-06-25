@@ -1,6 +1,24 @@
--- =========================
 -- TABELAS FORTES
--- =========================
+-- QUESTÃO 3
+
+-- ============================================================
+-- QUESTÃO 04 - RESTRIÇÕES USADAS NO BANCO
+
+-- CHECK simples:
+-- Exemplo no DDL:
+-- salario NUMERIC(10,2) NOT NULL CHECK (salario > 0)
+
+-- DEFAULT:
+-- Exemplo no DDL:
+-- status VARCHAR(20) DEFAULT 'Ativo'
+
+-- CHECK baseado em lista:
+-- Exemplo no DDL:
+-- CHECK (status IN ('Ativo', 'Inativo'))
+
+-- UNIQUE:
+-- Exemplo no DDL:
+-- email VARCHAR(100) UNIQUE NOT NULL
 
 CREATE TABLE cliente (
     id_cliente SERIAL PRIMARY KEY,
